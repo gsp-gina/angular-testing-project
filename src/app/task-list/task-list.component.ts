@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-task-list',
@@ -7,21 +7,13 @@ import { Component } from '@angular/core';
 })
 export class TaskListComponent {
 
-  tasks: string[] = [];
+        @Input() milista:string[]=[];
+        @Output() task:EventEmitter<number>=new EventEmitter<number>();
 
-  constructor() {
-    console.log('TaskListComponent initialized');
-  }
 
-  addTask(task: string) {
-    console.log('Adding task:', task);
-  }
+        cambiar(posicion:number){
+          console.log("entre");
+            this.task.emit(posicion);
 
-  updateTask(task: string) {
-    console.log('Updating task:', task);
-  }
-
-  deleteTask(task: string) {
-    console.log('Deleting task:', task);
-  }
+        }
 }

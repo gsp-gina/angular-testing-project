@@ -1,3 +1,11 @@
-<div>
-  <h1>Welcome to {{ title }}!</h1>
-</div>
+<app-task-list [milista]="lista" (task)="colocar($event)"></app-task-list>
+ 
+<input [(ngModel)]="tarea" type="text" placeholder="captura una actividad">
+<button  (click)="addTask()">Agregar</button>
+<br>
+<hr>
+<br>
+@if (lista.length!=0){
+  <input [(ngModel)]="tareaActualizar" type="text"  >
+  <button  (click)="actualizar()">Actualizar</button>
+}
